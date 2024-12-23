@@ -14,10 +14,12 @@ import java.util.Arrays;
 //Classe criada exclusivamente para a configuração do perfil de Teste, é necessário passar
 //A anotação @Configuration e a @Profile (Nome do perfil)
 
+
 @Configuration
 @Profile("test")
 public class TestConfig implements CommandLineRunner {
 
+//  Realizando uma injeção de dependência
     @Autowired
     private UserRepository userRepository;
 
