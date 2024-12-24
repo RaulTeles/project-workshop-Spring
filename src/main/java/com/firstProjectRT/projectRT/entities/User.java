@@ -3,6 +3,8 @@ package com.firstProjectRT.projectRT.entities;
 import jakarta.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -19,6 +21,11 @@ public class User implements Serializable {
     private String phone;
     private String password;
 
+//  Associando um cliente para vários pedidos
+//  Informar ao JPA transformar para uma chave estrangeira uma classe um para muitos
+    @OneToMany(mappedBy = "client")
+    private List<Order> orders = new ArrayList<>();
+
     public User(){
     }
 
@@ -28,6 +35,10 @@ public class User implements Serializable {
         this.email = email;
         this.phone = phone;
         this.password = password;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
     }
 
     public Long getID() {
