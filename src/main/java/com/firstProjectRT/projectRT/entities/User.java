@@ -1,5 +1,6 @@
 package com.firstProjectRT.projectRT.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
@@ -23,6 +24,8 @@ public class User implements Serializable {
 
 //  Associando um cliente para vários pedidos
 //  Informar ao JPA transformar para uma chave estrangeira uma classe um para muitos
+
+    @JsonIgnore
     @OneToMany(mappedBy = "client")
     private List<Order> orders = new ArrayList<>();
 
